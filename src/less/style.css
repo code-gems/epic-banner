@@ -1,0 +1,415 @@
+.epic-banner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  background-color: #ccc;
+}
+.epic-banner:before,
+.epic-banner:after {
+  display: table;
+  content: " ";
+}
+.epic-banner:after {
+  clear: both;
+}
+.epic-banner.eb-loaded > ul:before {
+  display: none;
+}
+.epic-banner > ul {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+.epic-banner > ul:before {
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 50%;
+  content: "\f110";
+  font-family: FontAwesome;
+  font-size: 3em;
+  -webkit-animation: eb-spin 2s infinite linear 300ms 0 ease;
+  -moz-animation: eb-spin 2s infinite linear 300ms 0 ease;
+  -ms-animation: eb-spin 2s infinite linear 300ms 0 ease;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.epic-banner > ul > li {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  bottom: 0;
+  left: -100%;
+  font-size: 0;
+}
+.epic-banner > ul > li.active {
+  z-index: 1;
+}
+.epic-banner > ul > li img,
+.epic-banner > ul > li video {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  width: 100%;
+}
+.epic-banner > ul > li > video {
+  display: block !important;
+}
+.epic-banner > ul > li > .eb-mobile {
+  display: none;
+}
+.epic-banner > ul > li > .eb-slogan {
+  position: absolute;
+  width: 100%;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont {
+  display: block;
+  margin: 30px 90px;
+  padding: 15px;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h1 {
+  font-size: 68px;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h2 {
+  font-size: 58px;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h3 {
+  font-size: 48px;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h1,
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h2,
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h3 {
+  margin: 0;
+  padding: 0 0 15px 0;
+  color: #202020;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h1 a,
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h2 a,
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont h3 a {
+  text-decoration: none;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont .eb-summary {
+  display: inline-block;
+  margin: 0;
+  padding: 0 0 15px 0;
+  color: #202020;
+  font-size: 26px;
+}
+.epic-banner > ul > li > .eb-slogan .eb-slogan-cont .eb-summary > ul > li {
+  font-size: 30px;
+  text-align: left;
+}
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont h1,
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont h2,
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont h3 {
+  color: #ffffff;
+}
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont .eb-summary li,
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont .eb-summary p,
+.epic-banner > ul > li > .eb-slogan.eb-invert .eb-slogan-cont .eb-summary a {
+  color: #ffffff;
+}
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont h1,
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont h2,
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont h3 {
+  text-shadow: 0 5px 40px #ffffff;
+}
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont .eb-summary li,
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont .eb-summary p,
+.epic-banner > ul > li > .eb-slogan.eb-shadow .eb-slogan-cont .eb-summary a {
+  text-shadow: 0 2px 30px #ffffff;
+}
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont h1,
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont h2,
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont h3 {
+  text-shadow: 0 5px 40px #000000;
+}
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont .eb-summary li,
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont .eb-summary p,
+.epic-banner > ul > li > .eb-slogan.eb-invert.eb-shadow .eb-slogan-cont .eb-summary a {
+  text-shadow: 0 2px 30px #000000;
+}
+.epic-banner > ul > li > .eb-slogan .text-orange {
+  color: #ec7815;
+}
+.epic-banner > ul > li > .eb-slogan.position-top {
+  top: 0;
+}
+.epic-banner > ul > li > .eb-slogan.position-middle {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.epic-banner > ul > li > .eb-slogan.position-bottom {
+  bottom: 0;
+}
+.epic-banner > ul > li > .eb-slogan.position-left {
+  text-align: left;
+}
+.epic-banner > ul > li > .eb-slogan.position-center {
+  text-align: center;
+}
+.epic-banner > ul > li > .eb-slogan.position-right {
+  text-align: right;
+}
+.epic-banner > ul > li > .eb-slogan.position-right .eb-slogan-cont .eb-summary ul {
+  float: right;
+}
+.epic-banner .eb-navi-cont {
+  display: block;
+  width: 100%;
+}
+.epic-banner .eb-navi-cont .eb-next,
+.epic-banner .eb-navi-cont .eb-prev {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  cursor: pointer;
+  text-align: center;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #e8a73a;
+  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  -webkit-transition: all 0.3s ease-out 0.3s;
+  -moz-transition: all 0.3s ease-out 0.3s;
+  -o-transition: all 0.3s ease-out 0.3s;
+  transition: all 0.3s ease-out 0.3s;
+}
+.epic-banner .eb-navi-cont .eb-next:before,
+.epic-banner .eb-navi-cont .eb-prev:before {
+  display: block;
+  content: " ";
+  color: #ffffff;
+  font-family: "FontAwesome";
+  font-size: 32px;
+  line-height: 50px;
+}
+.epic-banner .eb-navi-cont .eb-next {
+  right: -50px;
+}
+.epic-banner .eb-navi-cont .eb-next:before {
+  content: "\f105";
+}
+.epic-banner .eb-navi-cont .eb-prev {
+  left: -50px;
+}
+.epic-banner .eb-navi-cont .eb-prev:before {
+  content: "\f104";
+}
+.epic-banner .eb-navi-cont .eb-pbar {
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  top: 0;
+  background-color: rgba(128, 0, 0, 0.3);
+  z-index: 2;
+}
+.epic-banner .eb-navi-cont .eb-pagi {
+  position: absolute;
+  display: block;
+  padding: 10px;
+  bottom: 10px;
+  left: 50%;
+  opacity: 0;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  -webkit-transition: all 0.3s ease-out 0.3s;
+  -moz-transition: all 0.3s ease-out 0.3s;
+  -ms-transition: all 0.3s ease-out 0.3s;
+  -o-transition: all 0.3s ease-out 0.3s;
+  z-index: 2;
+}
+.epic-banner .eb-navi-cont .eb-pagi span {
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+  float: left;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #ffffff;
+}
+.epic-banner .eb-navi-cont .eb-pagi span:hover,
+.epic-banner .eb-navi-cont .eb-pagi span.selected {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  background-color: #e8a73a;
+}
+.epic-banner:hover .eb-navi-cont .eb-pagi,
+.epic-banner.show_navi .eb-navi-cont .eb-pagi {
+  opacity: 1;
+}
+.epic-banner:hover .eb-navi-cont .eb-next,
+.epic-banner.show_navi .eb-navi-cont .eb-next {
+  right: 30px;
+}
+.epic-banner:hover .eb-navi-cont .eb-prev,
+.epic-banner.show_navi .eb-navi-cont .eb-prev {
+  left: 30px;
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+@-webkit-keyframes eb-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+  }
+}
+@keyframes eb-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    -moz-transform: rotate(359deg);
+    -ms-transform: rotate(359deg);
+    -o-transform: rotate(359deg);
+  }
+}
+@media (max-width: 1199px) {
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h1 {
+    font-size: 46px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h2 {
+    font-size: 34px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h3 {
+    font-size: 26px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-summary p,
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-summary a,
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-summary ul li {
+    font-size: 18px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-cta a.btn {
+    font-size: 18px !important;
+    padding: 5px 15px !important;
+    border-radius: 6px !important;
+  }
+}
+@media (max-width: 768px) {
+  .epic-banner > ul > li .eb-slogan {
+    width: 100% !important;
+    top: 50% !important;
+    left: 50% !important;
+    bottom: auto !important;
+    right: auto !important;
+    -webkit-transform: translate(-50%, -50%) !important;
+    -moz-transform: translate(-50%, -50%) !important;
+    -ms-transform: translate(-50%, -50%) !important;
+    -o-transform: translate(-50%, -50%) !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont {
+    margin: 10px 60px;
+    padding: 15px;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h1 {
+    font-size: 34px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h2 {
+    font-size: 26px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h3 {
+    font-size: 18px !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-summary {
+    display: none !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-cta a.btn {
+    font-size: 18px !important;
+    padding: 5px 15px !important;
+    border-radius: 6px !important;
+  }
+  .epic-banner > ul > li .eb-mobile {
+    display: block !important;
+  }
+  .epic-banner > ul > li .eb-screen {
+    display: none !important;
+  }
+  .epic-banner .eb-navi-cont .eb-next,
+  .epic-banner .eb-navi-cont .eb-prev {
+    display: none !important;
+  }
+}
+@media (max-width: 480px) {
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont {
+    margin: 0px 0px;
+    padding: 15px;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h1 {
+    font-size: 46px !important;
+    text-align: center;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h2 {
+    font-size: 34px !important;
+    text-align: center;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont h3 {
+    font-size: 26px !important;
+    text-align: center;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-summary {
+    display: none !important;
+  }
+  .epic-banner > ul > li .eb-slogan .eb-slogan-cont .eb-cta {
+    font-size: 18px !important;
+    text-align: center;
+  }
+  .epic-banner > ul > li .eb-mobile {
+    display: block !important;
+  }
+  .epic-banner > ul > li .eb-screen {
+    display: none !important;
+  }
+  .epic-banner .eb-navi-cont .eb-next,
+  .epic-banner .eb-navi-cont .eb-prev {
+    display: none !important;
+  }
+}

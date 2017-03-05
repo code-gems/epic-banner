@@ -1,0 +1,379 @@
+
+
+.epic-banner {
+	position:           relative;
+	display:        	block;
+	width: 				100%;
+	height: 			300px;
+	overflow: 			hidden;
+	background-color: 	#ccc;
+
+	&:before, &:after { display: table; content: " "; }
+	&:after { clear: both; }
+	&.eb-loaded {
+		& > ul:before { display: none; }
+	}
+	
+	& > ul {
+		display: 				block;
+		width: 					100%;
+		height: 				100%;
+		margin: 				0;
+		padding: 				0;
+
+		list-style-type: 		none;
+
+		&:before {
+			position: 				absolute;
+			display: 				block;
+			top: 					50%;
+			left: 					50%;
+			content: 				"\f110";
+
+			font-family: 			FontAwesome;
+			font-size: 				3em;
+
+			.animation( eb-spin 2s infinite linear );
+			.translate( -50%,-50% );
+		}
+
+		& > li {
+			position: 				absolute;
+			width: 					100%;
+			margin: 				0;
+			bottom: 				0;
+			left: 					-100%;
+
+			font-size: 				0;
+
+			&.active { z-index: 1; }
+
+			img, video {
+				max-width: 				100%;
+				height: 				auto;
+				margin: 				0 auto;
+				width: 					100%;
+			}
+
+			& > video { display: block !important; } // FIX FOR SAFARI
+
+			& > .eb-mobile { display: none; }
+
+			& > .eb-slogan {
+				position: 				absolute;
+				width: 					100%;
+
+				.eb-slogan-cont {
+					display: 				block;
+					margin: 				30px 90px;
+					padding: 				15px;
+
+					h1 { font-size: 68px; }
+					h2 { font-size: 58px; }
+					h3 { font-size: 48px; }
+
+					h1, h2, h3 {
+						margin: 				0;
+						padding: 				0 0 15px 0;
+						color: 					#202020;
+
+						a { text-decoration: none; }
+					}
+
+					.eb-summary {
+						display: 				inline-block;
+						margin: 				0;
+						padding: 				0 0 15px 0;
+
+						color: 					#202020;
+						font-size: 				26px;
+	
+						& > ul > li {
+							font-size: 				30px;
+							text-align: 			left;
+						}
+					}
+				}
+
+				&.eb-invert {
+					.eb-slogan-cont {
+						h1, h2, h3 {  color: #ffffff; }
+
+						.eb-summary {
+							li, p, a { color: #ffffff; }
+						}
+					}
+				}
+
+				&.eb-shadow {
+					.eb-slogan-cont {
+						h1, h2, h3 { text-shadow: 0 5px 40px #ffffff; }
+						
+						.eb-summary { 
+							li, p, a { text-shadow: 0 2px 30px #ffffff; }
+						}
+					}
+				}
+
+				&.eb-invert.eb-shadow {
+					.eb-slogan-cont {
+						h1, h2, h3 { text-shadow: 0 5px 40px #000000; }
+
+						.eb-summary {
+							li, p, a { text-shadow: 0 2px 30px #000000; }
+						}
+					}
+				}
+				
+				.text-orange { color: #ec7815; }
+				
+				// SLOGAN CONTAINER POSITIONING
+				&.position-top { top: 0; }
+				&.position-middle {
+					top: 				50%; 
+					.transform( translateY(-50%) );
+				}
+				&.position-bottom { bottom: 0; }
+				&.position-left { text-align: left; }
+				&.position-center { text-align: center; }
+				&.position-right {
+					text-align: right;
+					.eb-slogan-cont .eb-summary ul { float: right; }
+				}
+
+
+			} //-- eb-slogan
+		}
+	}
+
+	// PAGINATION
+	.eb-navi-cont {
+		display: 				block;
+		width: 					100%;
+
+		.eb-next, .eb-prev {
+			position: 				absolute;
+			display: 				block;
+			width: 					50px;
+			height: 				50px;
+			top: 					50%;
+
+			.transform( translateY(-50%) );
+
+			cursor: 				pointer;
+			text-align: 			center;
+
+			 -webkit-border-radius: 50%;
+				-moz-border-radius: 50%;
+					 border-radius: 50%;
+
+			background-color: 		#e8a73a;
+
+			 -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+				-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2);
+					 box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+
+			z-index: 				2;
+
+			-webkit-transition: all 0.3s ease-out 0.3s;
+			-moz-transition: all 0.3s ease-out 0.3s;
+			-o-transition: all 0.3s ease-out 0.3s;
+			transition: all 0.3s ease-out 0.3s;
+			
+			&:before {
+				display: 				block;
+				content: 				" ";
+
+				color: 					#ffffff;
+				font-family: 			"FontAwesome";
+				font-size: 				32px;
+				line-height: 			50px;
+			}
+		}
+
+		.eb-next {
+			right: -50px;
+			&:before { content: "\f105"; }
+		}
+
+		.eb-prev {
+			left: -50px;
+			&:before { content: "\f104"; }
+		}
+
+		.eb-pbar {
+			position: 				absolute;
+			width: 					0%;
+			height: 				2px;
+			top: 					0;
+			
+			background-color: 		rgba(128, 0, 0, 0.3);
+			z-index: 				2;
+		}
+
+		.eb-pagi {
+			position: 				absolute;
+			display: 				block;
+			padding: 				10px;
+			bottom: 				10px;
+			left: 					50%;
+
+			opacity:				0;
+
+			.border-radius( 30px );
+			.transform( translateX(-50%) );
+			.transition( all 0.3s ease-out 0.3s );
+
+			z-index: 				2;
+
+			span {
+				display: 				block;
+				width: 					10px;
+				height: 				10px;
+				margin-right: 			10px;
+				float: 					left;
+
+				cursor: 				pointer;
+				
+				.border-radius( 50% );
+				
+				background-color: 		#ffffff;
+
+				&:hover, &.selected {
+					.transform( scale(1.5) );
+					background-color: 		#e8a73a;
+				}
+			}
+		}
+	}//-- eb-navi-cont
+
+	&:hover 	.eb-navi-cont, 
+	&.show_navi .eb-navi-cont {
+		.eb-pagi { opacity: 1; }
+		.eb-next { right: 30px; }
+		.eb-prev { left: 30px; }
+	}
+}
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+  animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes eb-spin {
+  0% {
+    .rotate(0deg);
+  }
+  100% {
+    .rotate(359deg);
+  }
+}
+
+@keyframes eb-spin {
+  0% {
+    .rotate(0deg);
+  }
+  100% {
+    .rotate(359deg);
+  }
+}
+
+
+@media (max-width: 1199px) { 
+	.epic-banner {
+
+		& > ul > li {
+			
+			.eb-slogan {
+
+				.eb-slogan-cont {
+
+					h1 { font-size: 46px !important; }
+					h2 { font-size: 34px !important; }
+					h3 { font-size: 26px !important; }
+
+					.eb-summary {
+						p, a, ul li { font-size: 18px !important; }
+					}
+	
+					.eb-cta a.btn {
+						font-size: 18px !important;
+						padding: 5px 15px !important;
+						border-radius: 6px !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) { 
+
+	.epic-banner > ul > li {
+
+		.eb-slogan {
+			width: 					100% !important;
+			top: 					50% !important;
+			left: 					50% !important;
+			bottom: 				auto !important;
+			right: 					auto !important;
+
+			.transform( translate(-50%, -50%) ) !important;
+
+			.eb-slogan-cont {
+				margin: 				10px 60px;
+				padding: 				15px;
+
+				h1 { font-size: 34px !important; }
+				h2 { font-size: 26px !important; }
+				h3 { font-size: 18px !important; }
+
+				.eb-summary { display: none !important; }
+
+				.eb-cta a.btn {
+					font-size: 				18px !important;
+					padding: 				5px 15px !important;
+					border-radius: 			6px !important;
+				}
+			}
+		}
+
+		.eb-mobile { display: block !important; }
+		.eb-screen { display: none !important; }
+	}
+
+	
+	.epic-banner .eb-navi-cont .eb-next,
+	.epic-banner .eb-navi-cont .eb-prev { display: none !important; }
+}
+
+@media (max-width: 480px) {
+
+	.epic-banner {
+
+		& > ul > li {
+			
+			.eb-slogan {
+
+				.eb-slogan-cont {
+					margin: 0px 0px;
+					padding: 15px;
+
+					h1 { font-size: 46px !important; text-align: center; }
+					h2 { font-size: 34px !important; text-align: center; }
+					h3 { font-size: 26px !important; text-align: center; }
+
+					.eb-summary { display: none !important; }
+
+					.eb-cta { font-size: 18px !important; text-align: center; }
+				}
+			}
+
+			.eb-mobile { display: block !important; }
+			.eb-screen { display: none !important; }
+		}
+
+		.eb-navi-cont {
+			.eb-next, .eb-prev { display: none !important; }
+		}
+	}
+}
